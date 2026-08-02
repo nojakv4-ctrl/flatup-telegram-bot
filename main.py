@@ -35,8 +35,7 @@ async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     DATA["dates"] = " ".join(ctx.args)
     save_data()
 
-    await update.message.reply_text("✅ Дати змінено!")
-    async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Дати змінено!")async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         if update.effective_user.id != ADMIN_ID:
         return
 
