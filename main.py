@@ -5,6 +5,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, ContextTyp
 MENU=[["💰 Розцінки","📸 Приклади робіт"],["📅 Вільні дати","📞 Контакти"],["📝 Залишити заявку"]]
 
 async def start(update:Update,ctx:ContextTypes.DEFAULT_TYPE):
+    print("START натиснули")
     await update.message.reply_text("Вітаємо у FlatUp Львів!",reply_markup=ReplyKeyboardMarkup(MENU,resize_keyboard=True))
 
 async def msg(update:Update,ctx:ContextTypes.DEFAULT_TYPE):
