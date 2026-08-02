@@ -30,7 +30,7 @@ async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
 
     if not ctx.args:
         await update.message.reply_text("Напиши так:\n/dates Вільно з 20 серпня")
-        return
+            return
 
     DATA["dates"] = " ".join(ctx.args)
     save_data()
