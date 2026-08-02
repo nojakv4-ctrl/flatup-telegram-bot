@@ -24,29 +24,7 @@ async def msg(update:Update,ctx:ContextTypes.DEFAULT_TYPE):
 "📝 Залишити заявку":"Напишіть ім'я, телефон і короткий опис."
 }.get(t,"Оберіть пункт меню.")
     await update.message.reply_text(r)
-async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
-    if update.effective_user.id != ADMIN_ID:
-        return
 
-    if not ctx.args:
-        await update.message.reply_text("Напиши так:\n/dates Вільно з 20 серпня")
-            return
-
-    DATA["dates"] = " ".join(ctx.args)
-    save_data()
-
-    await update.message.reply_text("✅ Дати змінено!")async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
-        if update.effective_user.id != ADMIN_ID:
-        return
-
-    if not ctx.args:
-        await update.message.reply_text("Напиши так:\n/dates Вільно з 20 серпня")
-        return
-
-    DATA["dates"] = " ".join(ctx.args)
-    save_data()
-
-    await update.message.reply_text("✅ Дати змінено!")
 app=Application.builder().token(os.environ["BOT_TOKEN"]).build()
 app.add_handler(CommandHandler("start",start))
 app.add_handler(CommandHandler("phone", phone))
