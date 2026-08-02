@@ -1,7 +1,10 @@
 import os
+import json
 from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
 ADMIN_ID = 486401273
+with open("data.json", "r", encoding="utf-8") as f:
+    DATA = json.load(f)
 MENU=[["💰 Розцінки","📸 Приклади робіт"],["📅 Вільні дати","📞 Контакти"],["📝 Залишити заявку"]]
 
 async def start(update:Update,ctx:ContextTypes.DEFAULT_TYPE):
