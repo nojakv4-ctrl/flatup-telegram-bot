@@ -24,18 +24,18 @@ async def msg(update:Update,ctx:ContextTypes.DEFAULT_TYPE):
 "📝 Залишити заявку":"Напишіть ім'я, телефон і короткий опис."
 }.get(t,"Оберіть пункт меню.")
     await update.message.reply_text(r)
-async def phone(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         return
 
     if not ctx.args:
-        await update.message.reply_text("Напиши так:\n/телефон +380671234567")
+        await update.message.reply_text("Напиши так:\n/dates Вільно з 20 серпня")
         return
 
-    DATA["phone"] = " ".join(ctx.args)
+    DATA["dates"] = " ".join(ctx.args)
     save_data()
 
-    await update.message.reply_text("✅ Телефон змінено!")
+    await update.message.reply_text("✅ Дати змінено!")
     async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         return
