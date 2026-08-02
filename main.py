@@ -38,6 +38,6 @@ async def phone(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("✅ Телефон змінено!")
 app=Application.builder().token(os.environ["BOT_TOKEN"]).build()
 app.add_handler(CommandHandler("start",start))
-app.add_handler(CommandHandler("телефон", phone))
+app.add_handler(CommandHandler("phone", phone))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND,msg))
 app.run_polling()
