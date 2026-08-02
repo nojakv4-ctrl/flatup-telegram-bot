@@ -36,8 +36,21 @@ async def phone(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     save_data()
 
     await update.message.reply_text("✅ Телефон змінено!")
+    async def dates(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id != ADMIN_ID:
+        return
+
+    if not ctx.args:
+        await update.message.reply_text("Напиши так:\n/dates Вільно з 20 серпня")
+        return
+
+    DATA["dates"] = " ".join(ctx.args)
+    save_data()
+
+    await update.message.reply_text("✅ Дати змінено!")
 app=Application.builder().token(os.environ["BOT_TOKEN"]).build()
 app.add_handler(CommandHandler("start",start))
 app.add_handler(CommandHandler("phone", phone))
+app.add_handler(CommandHandler("dates", dates))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND,msg))
 app.run_polling()
